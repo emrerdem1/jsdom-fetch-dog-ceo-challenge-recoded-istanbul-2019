@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const breedUrl = 'https://dog.ceo/api/breeds/list/all'
     const imgcon = document.getElementById('dog-image-container');
     const dogB = document.getElementById('dog-breeds');
-
     fetch(imgUrl)
         .then(function (response) {
             return response.json();
@@ -36,16 +35,19 @@ document.addEventListener("DOMContentLoaded", function () {
                     this.style.color = "red";
                 })
             });
-
         })
 
-    //challange 4 - not yet finished
-    //Object.keys(..).sort()
+    //challange 4 
     const dropsort = document.getElementById('breed-dropdown');
-    const allLI = document.querySelectorAll("li");
-    let dropArr = ['a', 'b', 'c', 'd'];
-    allLI.forEach(item => {
-        if (item.textContent[0] === dropsort.value);
+    dropsort.addEventListener("click", function () {
+        const allLI = document.querySelectorAll("li")
+        allLI.forEach(item => {
+            if (item.textContent[0] !== dropsort.value) {
+                item.style.display = 'none';
+            }
+            else {
+                item.style.display = 'block';
+            };
+        })
     })
-
 })
